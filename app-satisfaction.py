@@ -102,18 +102,18 @@ with tab3:
    st.image("Type of Travel.png", width=500)
    with st.expander("See analysis"):
     st.write("""
-        Among the passengers who are satisfied with the air travel,class distribution is dinstict,
-        passengers who take business class are much more likely to be satisfied compared with other 
-        two calsses,so we can reckon that the class is an influencial factor in satisfaction.
+        Among the passengers who are satisfied with the air travel,type of travel distribution is dinstict,
+        passengers who take business travel are much more likely to be satisfied,so we can reckon that the 
+        type of travel is an influencial factor in satisfaction.
     """)
 
 with tab4:
    st.image("Class.png", width=500)
    with st.expander("See analysis"):
     st.write("""
-        Among the passengers who are satisfied with the air travel,type of travel distribution is dinstict,
-        passengers who take business travel are much more likely to be satisfied,so we can reckon that the 
-        type of travel is an influencial factor in satisfaction.
+        Among the passengers who are satisfied with the air travel,class distribution is dinstict,
+        passengers who take business class are much more likely to be satisfied compared with other 
+        two calsses,so we can reckon that the class is an influencial factor in satisfaction.
     """)
 
 #=================Analysis2======================
@@ -128,7 +128,7 @@ st.pyplot(fig)
 with st.expander("See analysis"):
     st.write("""
         The heatmap above shows the relationship between every two criteria,and we can clearly see that criteria  \'Cleancliness\'、\'Food and drink\'、
-        '\Seat comfort\'、\'Inflight entertainment\' are highly associated.So we can make some possible suggestions that the airline company should take 
+        \'Seat comfort\'、\'Inflight entertainment\' are highly associated.So we can make some possible suggestions that the airline company should take 
         care of cleanliness and comfort when they offer drinking、eating and entertainment service.
     """)
 
