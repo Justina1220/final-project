@@ -1,5 +1,4 @@
 import streamlit as st
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -24,8 +23,7 @@ class_filter = st.sidebar.multiselect(
 # add a radio button
 age_filter = st.sidebar.radio(
     'Choose age level',
-    ('Young', 'Middle-aged', 'Old')
-)
+    ('Young', 'Middle-aged', 'Old'))
 
 
 #filter by flight distance
@@ -48,24 +46,26 @@ elif age_filter == 'Middle-aged':
 #show the df
 st.write(df)
 
+
 #show the age distribution
 st.subheader('Distribution of passengers\' age:')
-fig,ax = plt.subplots()
-df.Age.plot.hist(bins=10,ax=ax)
+fig, ax = plt.subplots()
+df.Age.plot.hist(bins=10, ax=ax)
 ax.set_ylabel('Quantity')
 ax.set_xlabel('Age')
 st.pyplot(fig)
 
 #show the flght distance range
 st.subheader('The range of flight distance:')
-fig,ax = plt.subplots()
-df1 = df.sort_values(by = 'Flight Distance', ascending = False, ignore_index = True)
-df1['Flight Distance'].plot().set_ylabel('Flight Distance')
+fig, ax = plt.subplots()
+df1 = df.sort_values(by='Flight Distance', ascending=False, ignore_index=True)
+df1['Flight Distance'].plot(ax=ax)
+ax.set_ylabel('Flight Distance')
 st.pyplot(fig)
 
 #show the box plot for flight distance with different classes
 st.subheader('The flight distance with different classes:')
-fig, ax = plt.subplots(1,3,figsize = (15, 5)) 
+fig, ax = plt.subplots(1, 3, figsize = (15, 5)) 
 df[df['Class'] == 'Eco']['Flight Distance'].plot.box(ax = ax[0])
 df[df['Class'] == 'Eco Plus']['Flight Distance'].plot.box(ax = ax[1])
 df[df['Class'] == 'Business']['Flight Distance'].plot.box(ax = ax[2])
@@ -75,17 +75,18 @@ ax[2].set_xlabel('Class = Business')
 ax[0].set_ylabel('Flight Distance')
 st.pyplot(fig)
 
+
 #further analysis
 st.title('Further Analysis')
 #===============Analysis1=======================
 st.subheader('Factors that might affect customer satisfaction:')
-tab1, tab2, tab3, tab4= st.tabs(["Gender", "Customer Type", "Type of Travel","Class"])
+tab1, tab2, tab3, tab4= st.tabs(["Gender", "Customer Type", "Type of Travel", "Class"])
 
 with tab1:
    st.image("Gender.png", width=500)
    with st.expander("See analysis"):
     st.write("""
-        Among the passengers who are satisfied with the air travel,gender distribution is almost the same，
+        Among the passengers who are satisfied with the air travel, gender distribution is almost the same. 
         So we can reckon that gender is not a factor that will affect satisfaction.
     """)
 
@@ -93,43 +94,44 @@ with tab2:
    st.image("Customer Type.png", width=500)
    with st.expander("See analysis"):
     st.write("""
-        Among the passengers who are satisfied with the air travel,customer type distribution is dinstict,
-        passengers who are loyal customers are much more likely to be satisfied,so we can reckon that the 
-        customer type is an influencial factor in satisfaction.
+        Among the passengers who are satisfied with the air travel, customer type distribution is dinstict,
+        passengers who are loyal customers are much more likely to be satisfied. So we can reckon that the 
+        customer type is an influential factor in satisfaction.
     """)
 
 with tab3:
    st.image("Type of Travel.png", width=500)
    with st.expander("See analysis"):
     st.write("""
-        Among the passengers who are satisfied with the air travel,type of travel distribution is dinstict,
-        passengers who take business travel are much more likely to be satisfied,so we can reckon that the 
-        type of travel is an influencial factor in satisfaction.
+        Among the passengers who are satisfied with the air travel, type of travel distribution is dinstict, 
+        passengers who take business travel are much more likely to be satisfied. So we can reckon that the 
+        type of travel is an influential factor in satisfaction.
     """)
 
 with tab4:
    st.image("Class.png", width=500)
    with st.expander("See analysis"):
     st.write("""
-        Among the passengers who are satisfied with the air travel,class distribution is dinstict,
-        passengers who take business class are much more likely to be satisfied compared with other 
-        two calsses,so we can reckon that the class is an influencial factor in satisfaction.
+        Among the passengers who are satisfied with the air travel, class distribution is dinstict, 
+        passengers who take business class are much more likely to be satisfied compared with other two calsses. So we can reckon that the 
+        class is an influential factor in satisfaction.
     """)
 
 #=================Analysis2======================
 #show the heatmap over criteria
-df0=pd.read_csv(r'train.csv')
+df0 = pd.read_csv(r'train.csv')
 st.subheader('The heatmap over 14 criteria:')
-fig,ax = plt.subplots()
+fig, ax = plt.subplots()
 corr = df0[['Inflight wifi service','Departure/Arrival time convenient','Ease of Online booking','Gate location','Food and drink','Online boarding',
 'Seat comfort','Inflight entertainment','On-board service','Leg room service','Baggage handling','Checkin service','Inflight service','Cleanliness']].corr()
-heatmap = sns.heatmap(corr,cmap='GnBu')
+heatmap = sns.heatmap(corr, cmap='GnBu')
 st.pyplot(fig)
 with st.expander("See analysis"):
     st.write("""
-        The heatmap above shows the relationship between every two criteria,and we can clearly see that criteria  \'Cleancliness\'、\'Food and drink\'、
-        \'Seat comfort\'、\'Inflight entertainment\' are highly associated.So we can make some possible suggestions that the airline company should take 
-        care of cleanliness and comfort when they offer drinking、eating and entertainment service.
+        The heatmap above shows the relationship between every two criteria, and we can clearly see that criteria  \'Cleancliness\', \'Food and drink\', 
+        \'Seat comfort\', \'Inflight entertainment\' are highly associated. So we can make some possible suggestions that the airline company should take 
+        care of cleanliness and comfort when they offer drinking, eating and entertainment service.
     """)
+
 
 st.balloons()
