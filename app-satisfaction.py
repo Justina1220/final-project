@@ -78,48 +78,49 @@ st.pyplot(fig)
 
 #further analysis
 st.title('Further Analysis')
+df0 = pd.read_csv(r'train.csv')
+df2 = df[df['satisfaction'] == 'satisfied']
 #===============Analysis1=======================
 st.subheader('Factors that might affect customer satisfaction:')
 tab1, tab2, tab3, tab4= st.tabs(["Gender", "Customer Type", "Type of Travel", "Class"])
 
 with tab1:
-   st.image("Gender.png", width=500)
-   with st.expander("See analysis"):
-    st.write("""
-        Among the passengers who are satisfied with the air travel, gender distribution is almost the same. 
-        So we can reckon that gender is not a factor that will affect satisfaction.
-    """)
+    st.write(df2['Gender'].value_counts()/df['Gender'].value_counts())
+    with st.expander("See analysis"):
+        st.write("""
+            Comparing the satisfaction ratio calculated respectively, the satisfaction by gender is almost the same. 
+            So we can reckon that gender is not a factor that will affect satisfaction.
+        """)
 
 with tab2:
-   st.image("Customer Type.png", width=500)
-   with st.expander("See analysis"):
-    st.write("""
-        Among the passengers who are satisfied with the air travel, customer type distribution is dinstict,
-        passengers who are loyal customers are much more likely to be satisfied. So we can reckon that the 
-        customer type is an influential factor in satisfaction.
-    """)
+    st.write(df2['Customer Type'].value_counts()/df['Customer Type'].value_counts())
+    with st.expander("See analysis"):
+        st.write("""
+            Comparing the satisfaction ratio calculated respectively, the satisfaction by customer type is dinstict,
+            passengers who are loyal customers are much more likely to be satisfied. So we can reckon that the 
+            customer type is an influential factor in satisfaction.
+        """)
 
 with tab3:
-   st.image("Type of Travel.png", width=500)
-   with st.expander("See analysis"):
-    st.write("""
-        Among the passengers who are satisfied with the air travel, type of travel distribution is dinstict, 
-        passengers who take business travel are much more likely to be satisfied. So we can reckon that the 
-        type of travel is an influential factor in satisfaction.
-    """)
+    st.write(df2['Type of Travel'].value_counts()/df['Type of Travel'].value_counts())
+    with st.expander("See analysis"):
+        st.write("""
+            Comparing the satisfaction ratio calculated respectively, the satisfaction by type of travel is dinstict, 
+            passengers who take personal travel are much more likely to be satisfied. So we can reckon that the 
+            type of travel is an influential factor in satisfaction.
+        """)
 
 with tab4:
-   st.image("Class.png", width=500)
-   with st.expander("See analysis"):
-    st.write("""
-        Among the passengers who are satisfied with the air travel, class distribution is dinstict, 
-        passengers who take business class are much more likely to be satisfied compared with other two calsses. So we can reckon that the 
-        class is an influential factor in satisfaction.
-    """)
+    st.write(df2['Class'].value_counts()/df['Class'].value_counts())
+    with st.expander("See analysis"):
+        st.write("""
+            Comparing the satisfaction ratio calculated respectively, the satisfaction by class is dinstict, 
+            passengers who take eco class are much more likely to be satisfied compared with other two calsses. So we can reckon that the 
+            class is an influential factor in satisfaction.
+        """)
 
 #=================Analysis2======================
 #show the heatmap over criteria
-df0 = pd.read_csv(r'train.csv')
 st.subheader('The heatmap over 14 criteria:')
 fig, ax = plt.subplots()
 corr = df0[['Inflight wifi service','Departure/Arrival time convenient','Ease of Online booking','Gate location','Food and drink','Online boarding',
