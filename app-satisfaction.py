@@ -79,13 +79,13 @@ st.pyplot(fig)
 #further analysis
 st.title('Further Analysis')
 df0 = pd.read_csv(r'train.csv')
-df2 = df[df['satisfaction'] == 'satisfied']
+df2 = df0[df0['satisfaction'] == 'satisfied']
 #===============Analysis1=======================
 st.subheader('Factors that might affect customer satisfaction:')
 tab1, tab2, tab3, tab4= st.tabs(["Gender", "Customer Type", "Type of Travel", "Class"])
 
 with tab1:
-    st.write(df2['Gender'].value_counts()/df['Gender'].value_counts())
+    st.write(df2['Gender'].value_counts()/df0['Gender'].value_counts())
     with st.expander("See analysis"):
         st.write("""
             Comparing the satisfaction ratio calculated respectively, the satisfaction by gender is almost the same. 
@@ -93,7 +93,7 @@ with tab1:
         """)
 
 with tab2:
-    st.write(df2['Customer Type'].value_counts()/df['Customer Type'].value_counts())
+    st.write(df2['Customer Type'].value_counts()/df0['Customer Type'].value_counts())
     with st.expander("See analysis"):
         st.write("""
             Comparing the satisfaction ratio calculated respectively, the satisfaction by customer type is dinstict,
@@ -102,7 +102,7 @@ with tab2:
         """)
 
 with tab3:
-    st.write(df2['Type of Travel'].value_counts()/df['Type of Travel'].value_counts())
+    st.write(df2['Type of Travel'].value_counts()/df0['Type of Travel'].value_counts())
     with st.expander("See analysis"):
         st.write("""
             Comparing the satisfaction ratio calculated respectively, the satisfaction by type of travel is dinstict, 
@@ -111,7 +111,7 @@ with tab3:
         """)
 
 with tab4:
-    st.write(df2['Class'].value_counts()/df['Class'].value_counts())
+    st.write(df2['Class'].value_counts()/df0['Class'].value_counts())
     with st.expander("See analysis"):
         st.write("""
             Comparing the satisfaction ratio calculated respectively, the satisfaction by class is dinstict, 
