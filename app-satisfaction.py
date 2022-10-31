@@ -88,7 +88,7 @@ with tab1:
     st.write(df2['Gender'].value_counts()/df0['Gender'].value_counts())
     with st.expander("See analysis"):
         st.write("""
-            Comparing the satisfaction ratio calculated respectively, the satisfaction by gender is almost the same. 
+            Comparing the satisfaction rates of male and female, we find that the satisfaction by gender is almost the same. 
             So we can reckon that gender is not a factor that will affect satisfaction.
         """)
 
@@ -96,7 +96,7 @@ with tab2:
     st.write(df2['Customer Type'].value_counts()/df0['Customer Type'].value_counts())
     with st.expander("See analysis"):
         st.write("""
-            Comparing the satisfaction ratio calculated respectively, the satisfaction by customer type is dinstict,
+            Comparing the satisfaction rates of loyal and disloyal people, the satisfaction by customer type is dinstict,
             passengers who are loyal customers are much more likely to be satisfied. So we can reckon that the 
             customer type is an influential factor in satisfaction.
         """)
@@ -105,8 +105,8 @@ with tab3:
     st.write(df2['Type of Travel'].value_counts()/df0['Type of Travel'].value_counts())
     with st.expander("See analysis"):
         st.write("""
-            Comparing the satisfaction ratio calculated respectively, the satisfaction by type of travel is dinstict, 
-            passengers who take personal travel are much more likely to be satisfied. So we can reckon that the 
+            Comparing the satisfaction rates of business and personal travel, the satisfaction by type of travel is dinstict, 
+            passengers who take business travel are much more likely to be satisfied. So we can reckon that the 
             type of travel is an influential factor in satisfaction.
         """)
 
@@ -114,8 +114,8 @@ with tab4:
     st.write(df2['Class'].value_counts()/df0['Class'].value_counts())
     with st.expander("See analysis"):
         st.write("""
-            Comparing the satisfaction ratio calculated respectively, the satisfaction by class is dinstict, 
-            passengers who take eco class are much more likely to be satisfied compared with other two calsses. So we can reckon that the 
+            Comparing the satisfaction rates of eco, eco plus and business seat, the satisfaction by class is dinstict, 
+            passengers who take business class are much more likely to be satisfied compared with other two classes. So we can reckon that the 
             class is an influential factor in satisfaction.
         """)
 
@@ -129,7 +129,7 @@ heatmap = sns.heatmap(corr, cmap='GnBu')
 st.pyplot(fig)
 with st.expander("See analysis"):
     st.write("""
-        The heatmap above shows the relationship between every two criteria, and we can clearly see that criteria  \'Cleancliness\', \'Food and drink\', 
+        The heatmap above shows the relationship between every two criteria, and we can clearly see that criteria  \'Cleanliness\', \'Food and drink\', 
         \'Seat comfort\', \'Inflight entertainment\' are highly associated. So we can make some possible suggestions that the airline company should take 
         care of cleanliness and comfort when they offer drinking, eating and entertainment service.
     """)
