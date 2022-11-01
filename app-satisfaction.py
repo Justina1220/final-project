@@ -7,7 +7,6 @@ plt.style.use('seaborn')
 st.title('Satisfaction of airline passengers')
 st.image('shuaige.jpg')
 df = pd.read_csv(r'train.csv')
-df.drop(['Unnamed: 0'], axis=1, inplace=True)
 
 #add a slider
 distance_slider = st.slider('Flight Distance', 0, 5000, 2000)
