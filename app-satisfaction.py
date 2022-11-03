@@ -34,13 +34,10 @@ df = df[df.Class.isin(class_filter)]
 # filter by age level
 if age_filter == 'Young':
     df = df[df.Age <= 20]
-    st.sidebar.image('shuaige4.jpg')
 elif age_filter == 'Old':
     df = df[df.Age > 55]
-    st.sidebar.image('shuaige3.jpg')
 elif age_filter == 'Middle-aged':
     df = df[(df.Age > 20) & (df.Age <= 55)]
-    st.sidebar.image('shuaige2.jpg')
 
 #show the df
 st.write(df)
