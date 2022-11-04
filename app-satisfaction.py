@@ -133,9 +133,10 @@ with st.expander("See analysis"):
 
 st.image('feature-importance.png')
 st.write("""
-       Furthermore,we use XGBOOST model to do machine learning, and we finally get the 10 most important feature.We find:
-       the \'Customer Type\'、\'Type of Travel\'、\'Class\' features are quite essential in affecting passengers'
-       satisfaction, wheras \'Gender\' feature affect slighty, which verifies our former discussion.
+       Furthermore, we use XGBOOST model to do machine learning, and we finally get the 10 most important feature. We find that
+       the \'Customer Type\', \'Type of Travel\', \'Class\' features are quite essential in affecting passengers'
+       satisfaction, whereas \'Gender\' feature affect slighty, which verifies our former discussion.
     """)
+
 
 st.balloons()
