@@ -18,7 +18,7 @@
 2. **There are 14 aspects related to the satisfaction in the survey. Which aspects are highly correlated and therefore the satisfaction?**
 
     - We calculate the correlated coefficients of every two criteria and compare.
-    - The criteria *'Cleancliness'*, *'Food and drink'*, *'Seat comfort'*, *'Inflight entertainment'* are highly associated. So we can make some possible suggestions that the airline company should take care of cleanliness and comfort when they offer drinking, eating and entertainment service.
+    - The criteria *'Cleanliness'*, *'Food and drink'*, *'Seat comfort'*, *'Inflight entertainment'* are highly associated. So we can make some possible suggestions that the airline company should take care of cleanliness and comfort when they offer drinking, eating and entertainment service.
 
 ## Usage
 
